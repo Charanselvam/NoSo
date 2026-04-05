@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="blocked.js"></script>
+  <title>Time's Up! | Site Limiter</title>
+  <style>
+    :root {
+      --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      --bg-color: #000000;
+      --text-main: #ffffff;
+      --text-sub: #a8a8a8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      padding: 40px;
+      max-width: 400px;
+      width: 90%;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .icon-wrapper {
+      width: 80px;
+      height: 80px;
+      background: var(--insta-gradient);
+      border-radius: 22px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 20px rgba(220, 39, 67, 0.3);
+    }
+    .insta-logo-white {
+      width: 40px;
+      height: 40px;
+      border: 3px solid white;
+      border-radius: 12px;
+      position: relative;
+    }
+    .insta-logo-white::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border: 3px solid white;
+      border-radius: 50%;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .insta-logo-white::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      top: 5px; right: 5px;
+    }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px; }
+    p {
+      color: var(--text-sub);
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+    #site-name { color: #0095f6; font-weight: 600; }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    button {
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 14px 24px;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      border: none;
+    }
+    .btn-primary {
+      background: #0095f6;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #1877f2;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid #363636;
+    }
+    .btn-secondary:hover {
+      background: #262626;
+    }
+    .footer-note {
+      margin-top: 24px;
+      font-size: 12px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon-wrapper">
+      <div class="insta-logo-white"></div>
+    </div>
+   
+    <h1>Take a breather.</h1>
+    <p>You’ve reached your daily limit for <span id="site-name"></span>.<br>Your focus deserves a break!</p>
+    
+    <div class="btn-group">
+      <button id="close-btn" class="btn-primary">Close Tab</button>
+      <button id="search-btn" class="btn-secondary">Go to Search</button>
+    </div>
+    
+    <div class="footer-note">
+      Timer resets at midnight.
+    </div>
+  </div>
+</body>
+</html>
